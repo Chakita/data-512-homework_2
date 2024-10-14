@@ -19,6 +19,9 @@ This repository contains the data and code for the analysis of quality of Wikipe
 
 All the data collected in this analysis through the APIs are subject to the terms and conditions of the [Wikimedia Foundation terms of use](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use) which states that users can freely access and reuse the content on Wikimedia platforms, including articles and datasets, under free and open licenses. Any contributions made to Wikimedia platforms must be licensed under a free and open license, allowing the content to be freely shared and reused by others. Users are responsible for their edits and contributions and must adhere to laws, avoid copyright infringement, and respect the platform's policies.
 
+### Data inconsistency
+Some of the fields contained names of political parties as opposed to an actual politician. One occurance that was caught is ```8th National Assembly of Slovenia``` that was manually removed from the CSV.
+
 ## Research Implications
 While working on the analysis, I found out about the ```country-converter``` package which was pretty handy to map countries to regions. For this analysis, we map each country to the region that is the lowest in the hierarchy (for example, we map India to South Asia and Singapore to South East Asia). I found that these regions are actually the [United Nations geoscheme](https://en.wikipedia.org/wiki/United_Nations_geoscheme#:~:text=The%20United%20Nations%20geoscheme%20is,on%20the%20M49%20coding%20classification.) which is a scheme that divides 248 countries into 22 geographical subregions.
 
