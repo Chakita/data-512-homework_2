@@ -15,13 +15,31 @@ This repository contains the data and code for the analysis of quality of Wikipe
 - ORES requires a specific revision ID of an article to be able to make a label prediction. For our analysis, we will use the latest revision of an article. To obtain the latest revision ID for an article, we will use the [Article Page Info MediaWiki API](https://www.mediawiki.org/wiki/API:Info).
 - The resulting dataset consisting of country, region, population, article_title (politician name), revision_id and article_quality is stored in wp_politicians_by_country.csv which can be found on the repository.
 - wp_countries-no_match.txt consists of  all countries for which there are no matches i.e either the population dataset does not have an entry for the equivalent Wikipedia country, or vice-versa.
-- articles_without_scores.txt consists of all the politicians for whom we were unable to extrqact the latest revision ID for their corresponding articles through the page info API. This seems to be because these articles are not in English.
+- articles_without_scores.txt consists of all the politicians for whom we were unable to extract the latest revision ID for their corresponding articles through the page info API. This seems to be because these articles are not in English.
 
 All the data collected in this analysis through the APIs are subject to the terms and conditions of the [Wikimedia Foundation terms of use](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use) which states that users can freely access and reuse the content on Wikimedia platforms, including articles and datasets, under free and open licenses. Any contributions made to Wikimedia platforms must be licensed under a free and open license, allowing the content to be freely shared and reused by others. Users are responsible for their edits and contributions and must adhere to laws, avoid copyright infringement, and respect the platform's policies.
 
 ### Data inconsistency
 Some of the fields contained names of political parties as opposed to an actual politician. One occurance that was caught is ```8th National Assembly of Slovenia``` that was manually removed from the CSV.
 There were some people in the list of politicians that have a different primary occupation (that they are well known for) but have also had careers in politics. We retain these cases in our analysis since we still consider them to be politicians.
+
+There are some countires for which we do not have population information. We drop these countries from our analysis. The list of these countries or fields that were dropeed from analysis can be found in ```wp_countries-no_match.txt``` in this repository.
+
+## Analysis
+We calculate the total-articles-per-capita (a ratio representing the number of articles per person)  and high-quality-articles-per-capita (a ratio representing the number of high quality articles per person) on a country-by-country and regional basis.
+In this analysis we assign a country only to one region. For our analysis, we always put a country in the closest (lowest in the hierarchy) region.
+For this analysis we consider "high quality" articles to be articles that ORES predicted would be in either the "FA" (featured article) or "GA" (good article) classes.
+The population data in the ```population_by_country_AUG.2024.csv``` file provides population in millions which is why the calculated proportions are relatively small.
+
+As part of our analysis, we produce tables for the following (tables can be found in the notebook)
+1. Geographic regions by total coverage: A rank ordered list of geographic regions (in descending order) by total articles per capita.
+2. Geographic regions by high quality coverage: Rank ordered list of geographic regions (in descending order) by high quality articles per capita.
+3. Top 10 countries by coverage: The 10 countries with the highest total articles per capita (in descending order) .
+4. Bottom 10 countries by coverage: The 10 countries with the lowest total articles per capita (in ascending order) .
+5. Top 10 countries by high quality: The 10 countries with the highest high quality articles per capita (in descending order) .
+6. Bottom 10 countries by high quality: The 10 countries with the lowest high quality articles per capita (in ascending order).
+
+We discuss about our results in the following section.
 
 ## Research Implications
 While working on the analysis, I found out about the ```country-converter``` package which was pretty handy to map countries to regions. For this analysis, we map each country to the region that is the lowest in the hierarchy (for example, we map India to South Asia and Singapore to South East Asia). I found that these regions are actually the [United Nations geoscheme](https://en.wikipedia.org/wiki/United_Nations_geoscheme#:~:text=The%20United%20Nations%20geoscheme%20is,on%20the%20M49%20coding%20classification.) which is a scheme that divides 248 countries into 22 geographical subregions.
