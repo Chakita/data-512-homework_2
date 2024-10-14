@@ -1,6 +1,6 @@
 # Analysis of Quality of Wikipedia Articles on Global Politicians
 
-This repository contains the data and code for the analysis of quality of Wikipedia articles on global politicians. The goal of the analysis is to find the top 10 countries and regions with the highest coverage (number of articles per capita) and with the most pewr capita high quality articles. Parts of the code were adapted from this [example notebook](https://drive.google.com/file/d/1GN1ULxKombHRzVsNKzj7tBhnBrSWUWXc/view?usp=drive_link) provided by Dr. David McDonald. The Wikipedia Politicians dataset and the Population dataset where also extracted and provided by Dr. David McDonald.
+This repository contains the data and code for the analysis of quality of Wikipedia articles on global politicians. The goal of the analysis is to find the top 10 countries and regions with the highest coverage (number of articles per capita) and with the most per capita high quality articles. Parts of the code were adapted from this [example notebook](https://drive.google.com/file/d/1GN1ULxKombHRzVsNKzj7tBhnBrSWUWXc/view?usp=drive_link) provided by Dr. David McDonald. The Wikipedia Politicians dataset and the Population dataset where also extracted and provided by Dr. David McDonald.
 
 ## Data
 - The Wikipedia [Category:Politicians](https://en.wikipedia.org/wiki/Category:Politicians_by_nationality) by nationality was crawled to generate a list of Wikipedia article pages about politicians from a wide range of countries. This data is in this repository as politicians_by_country.AUG.2024.csv.
@@ -21,6 +21,7 @@ All the data collected in this analysis through the APIs are subject to the term
 
 ### Data inconsistency
 Some of the fields contained names of political parties as opposed to an actual politician. One occurance that was caught is ```8th National Assembly of Slovenia``` that was manually removed from the CSV.
+There were some people in the list of politicians that have a different primary occupation (that they are well known for) but have also had careers in politics. We retain these cases in our analysis since we still consider them to be politicians.
 
 ## Research Implications
 While working on the analysis, I found out about the ```country-converter``` package which was pretty handy to map countries to regions. For this analysis, we map each country to the region that is the lowest in the hierarchy (for example, we map India to South Asia and Singapore to South East Asia). I found that these regions are actually the [United Nations geoscheme](https://en.wikipedia.org/wiki/United_Nations_geoscheme#:~:text=The%20United%20Nations%20geoscheme%20is,on%20the%20M49%20coding%20classification.) which is a scheme that divides 248 countries into 22 geographical subregions.
