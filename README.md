@@ -1,6 +1,6 @@
 # Analysis of Quality of Wikipedia Articles on Global Politicians
 
-This repository contains the data and code for the analysis of quality of Wikipedia articles on global politicians. The goal of the analysis is to find the top 10 countries and regions with the highest coverage (number of articles per capita) and with the most pewr capita high quality articles. 
+This repository contains the data and code for the analysis of quality of Wikipedia articles on global politicians. The goal of the analysis is to find the top 10 countries and regions with the highest coverage (number of articles per capita) and with the most pewr capita high quality articles. Parts of the code were adapted from this [example notebook](https://drive.google.com/file/d/1GN1ULxKombHRzVsNKzj7tBhnBrSWUWXc/view?usp=drive_link) provided by Dr. David McDonald. The Wikipedia Politicians dataset and the Population dataset where also extracted and provided by Dr. David McDonald.
 
 ## Data
 - The Wikipedia [Category:Politicians](https://en.wikipedia.org/wiki/Category:Politicians_by_nationality) by nationality was crawled to generate a list of Wikipedia article pages about politicians from a wide range of countries. This data is in this repository as politicians_by_country.AUG.2024.csv.
