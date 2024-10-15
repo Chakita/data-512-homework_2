@@ -31,7 +31,7 @@ In this analysis we assign a country only to one region. For our analysis, we al
 For this analysis we consider "high quality" articles to be articles that ORES predicted would be in either the "FA" (featured article) or "GA" (good article) classes.
 The population data in the ```population_by_country_AUG.2024.csv``` file provides population in millions which is why the calculated proportions are relatively small.
 
-As part of our analysis, we produce tables for the following (tables can be found in the notebook)
+As part of our analysis, we produce tables for the following (tables can be found in the [notebook](Analysis_of_Quality_of_Wikipedia_Articles_on_Global_Politicians.ipynb))
 1. Geographic regions by total coverage: A rank ordered list of geographic regions (in descending order) by total articles per capita.
 2. Geographic regions by high quality coverage: Rank ordered list of geographic regions (in descending order) by high quality articles per capita.
 3. Top 10 countries by coverage: The 10 countries with the highest total articles per capita (in descending order) .
